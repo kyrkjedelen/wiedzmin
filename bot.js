@@ -5,7 +5,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const BOT_TOKEN = process.env.BOT_TOKEN;
-const COMMAND_PREFIX = ";";
+const COMMAND_PREFIX = "!";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}.`);
@@ -34,12 +34,13 @@ client.on('message', input => {
     }
   }
   if(message.isCommand('help')) {
-    botMessage = `Prefix: semicolon (\`${COMMAND_PREFIX}\`)\nCommands:\n\` ;search "language" "media" \`\nThis command searches for a website to purchase the book/move/series you want in your specified language.\n\` ;help \`\nGets you some help.`;
+    botMessage = `Prefix: semicolon (\`${COMMAND_PREFIX}\`)\nCommands:\n\`;search "language" "media"\`\nThis command searches for a website to purchase the book/move/series you want in your specified language.\n\`;help \`\nGets you some help.`;
     input.channel.send(botMessage);
   }
   // if(message.isCommand('add')) {
   //   command = new addCommand(message.content);
-  //   console.log(command);
+  //   const data = TEXT.parse(fs.readFileSync('suggestions.txt'));
+  //   console.log(data);
   //   input.channel.send('added');
   // }
 });
